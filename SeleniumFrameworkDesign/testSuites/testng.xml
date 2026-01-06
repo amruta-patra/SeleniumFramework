@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" thread-count="3" name="Suite" >
+
+<listeners>
+<listener class-name="rahulshettyacademy.TestComponents.Listeners"/>
+  <listener class-name="rahulshettyacademy.TestComponents.RetryListener"/>
+</listeners>
+
+<!--  <test parallel="classes" thread-count="5" name="Submit Order Test">-->
+<!--    <classes>-->
+<!--      <class name="rahulshettyacademy.tests.SubmitOrderTest"/>-->
+<!--      &lt;!&ndash;class name="rahulshettyacademy.tests.ErrorValidationsTest"/&ndash;&gt;-->
+
+<!--    </classes>-->
+<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+  
+  <test parallel="classes" thread-count="3" name="Error Validations Test">
+    <classes>
+      <class name="rahulshettyacademy.tests.ErrorValidationsTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
