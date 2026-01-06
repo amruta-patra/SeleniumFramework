@@ -7,13 +7,13 @@
   <listener class-name="rahulshettyacademy.TestComponents.RetryListener"/>
 </listeners>
 
-<!--  <test parallel="classes" thread-count="5" name="Submit Order Test">-->
-<!--    <classes>-->
-<!--      <class name="rahulshettyacademy.tests.SubmitOrderTest"/>-->
-<!--      &lt;!&ndash;class name="rahulshettyacademy.tests.ErrorValidationsTest"/&ndash;&gt;-->
+  <test parallel="classes" thread-count="5" name="Submit Order Test">
+    <classes>
+      <class name="rahulshettyacademy.tests.SubmitOrderTest"/>
+      <!--class name="rahulshettyacademy.tests.ErrorValidationsTest"/-->
 
-<!--    </classes>-->
-<!--  </test> &lt;!&ndash; Test &ndash;&gt;-->
+    </classes>
+  </test> <!-- Test -->
   
   <test parallel="classes" thread-count="3" name="Error Validations Test">
     <classes>
