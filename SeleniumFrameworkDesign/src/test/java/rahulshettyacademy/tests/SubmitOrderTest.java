@@ -35,9 +35,16 @@ import rahulshettyacademy.pageobjects.ProductCatalogue;
 public class SubmitOrderTest extends BaseTest{
 	String productName = "ZARA COAT 3";
 
+	@Test
+	public void logSmokeTest() {
+		log.info("Log4j is working");
+	}
+
 	@Test(dataProvider="getData",groups= {"Purchase"})
 	public void submitOrder(HashMap<String,String> input) throws IOException, InterruptedException
 	{
+		log.info("Starting Submit Order Test");
+		log.debug("Navigating to landing page");
 		ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"), input.get("password"));
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(input.get("product"));
@@ -50,7 +57,8 @@ public class SubmitOrderTest extends BaseTest{
 		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
 		String confirmMessage = confirmationPage.getConfirmationMessage();
 		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-		
+		log.info("Order submitted successfully");
+
 	}
 	
 	@Test(dependsOnMethods= {"submitOrder"})

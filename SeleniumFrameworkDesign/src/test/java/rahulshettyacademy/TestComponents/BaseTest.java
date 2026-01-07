@@ -3,6 +3,7 @@ package rahulshettyacademy.TestComponents;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -27,11 +28,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import rahulshettyacademy.pageobjects.LandingPage;
+import org.slf4j.Logger;
+import utils.Log;
+import org.apache.logging.log4j.ThreadContext;
 
 public class BaseTest {
 
 	public WebDriver driver;
 	public LandingPage landingPage;
+	protected Logger log = Log.getLogger(this.getClass());
+
 
 	public WebDriver initializeDriver() throws IOException
 
@@ -120,7 +126,15 @@ public class BaseTest {
 
 	}
 
+	@BeforeMethod
+	public void beforeMethod(Method method) {
+		ThreadContext.put("testName", method.getName());
+	}
 
+	@AfterMethod
+	public void afterMethod() {
+		ThreadContext.clearAll();
+	}
 	@AfterMethod(alwaysRun=true)	
 	public void tearDown()
 	{
