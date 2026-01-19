@@ -45,6 +45,7 @@ public class SubmitOrderTest extends BaseTest{
 	{
 		log.info("Starting Submit Order Test");
 		log.debug("Navigating to landing page");
+		System.out.println("Testing .....");
 		ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"), input.get("password"));
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(input.get("product"));
