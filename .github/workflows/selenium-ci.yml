@@ -24,9 +24,11 @@ jobs:
         run: google-chrome --version
 
       - name: Build project
+        working-directory: SeleniumFrameworkDesign
         run: mvn clean compile
 
       - name: Run Selenium Tests
+        working-directory: SeleniumFrameworkDesign
         run: mvn test
 
       - name: Upload Extent Report
