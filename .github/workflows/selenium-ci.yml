@@ -36,4 +36,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: extent-report
-          path: reports/
+          path: SeleniumFrameworkDesign/reports/
+
+      - name: Upload Surefire Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: SeleniumFrameworkDesign/target/surefire-reports

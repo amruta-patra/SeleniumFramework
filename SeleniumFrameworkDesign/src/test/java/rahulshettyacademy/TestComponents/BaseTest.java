@@ -54,6 +54,14 @@ public class BaseTest {
 
 		if (browserName.contains("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+
+			// ✅ Accept insecure / self-signed certificates
+			options.setAcceptInsecureCerts(true);
+
+			// ✅ Mandatory for CI (GitHub Actions)
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--window-size=1920,1080");
 			//WebDriverManager.chromedriver().setup();
 			if(browserName.contains("headless")){
 			options.addArguments("--headless=new");
