@@ -95,10 +95,10 @@ public class LandingPage extends AbstractComponent{
         wait.until(ExpectedConditions.visibilityOf(productList));
     }
 
-    private void waitForElementToBeClickable(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
-    
+//    private void waitForElementToBeClickable(WebElement element) {
+//        wait.until(ExpectedConditions.elementToBeClickable(element));
+//    }
+//
     public void HomeLink()
     {
     	Home.click();
